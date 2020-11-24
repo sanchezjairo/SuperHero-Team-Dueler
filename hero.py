@@ -26,16 +26,28 @@ class Hero:
         winner = random.choice(winner_list)
         print(f'{winner} won!')
 
+    def add_ability(self, ability):
+        self.abilities.append(ability)
 
-  # TODO: Fight each hero until a victor emerges.
-  # Phases to implement:
-  #1) randomly choose winner,
-  #Hint: Look into random library, more specifically the choice method
+    def attack(self):
+      '''Calculate the total damage from all ability attacks.
+          return: total_damage:Int
+      '''
 
+      # start our total out at 0
+      total_damage = 0
+        # loop through all of our hero's abilities
+      for ability in self.abilities:
+            # add the damage of each attack to our running total
+            total_damage += ability.attack()
+        # return the total damage
+      return total_damage
 
-if __name__ == "__main__":
-    # If you run this file from the terminal
-    # this block is executed.
-    my_hero = Hero("Grace Hopper", 200)
-    print(my_hero.name)
-    print(my_hero.current_health)
+    def add_armor(self, armor):
+        self.armors = armor
+
+    def defend(self):
+      total_block  = 0
+      for Armor in self.armors:
+          total_block -= Armor.defend()
+      return total_block
